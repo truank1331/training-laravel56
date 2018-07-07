@@ -4,3 +4,10 @@ https://github.com/thenesta/laravel56-training
 
 # Json Sample APIs
 https://api.github.com/users/hadley/orgs
+
+# Bootstrap
+https://startbootstrap.com/template-categories/admin-dashboard/
+https://getbootstrap.com/docs/4.0/components/modal/
+
+# Example & Tutorial form P' Peck
+https://github.com/thenesta/laravel56-training
