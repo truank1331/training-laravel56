@@ -119,7 +119,7 @@ class UsersController extends Controller
         $mod->address  = $request->address;
         $mod->city     = $request->city;
         $mod->save();
-        echo "success";
+        return redirect('admin/user')->with('success', 'User ['.$request->name.'] created successfully.');
     }
 
     /**
