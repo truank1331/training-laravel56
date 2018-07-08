@@ -36,4 +36,4 @@ Route::get('demoten/age/{age}/school/{school}', function ($age, $school) {
 });
 
 Route::resource('photos', 'PhotoController');
-Route::resource('admin/users', 'Admin\UsersController');
+Route::resource('admin/user', 'Admin\UsersController');

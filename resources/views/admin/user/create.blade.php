@@ -14,7 +14,7 @@
 <div class="card mb-3">
   <div class="card-header">Create User</div>
   <div class="card-body">
-    <form method="POST" action="{{ URL::to('admin/users') }}">
+    <form method="POST" action="{{ URL::to('admin/user') }}">
 
     <div class="card border-dark">
           <div class="card-header">

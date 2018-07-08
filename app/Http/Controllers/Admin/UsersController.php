@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\User as UserMod;
 use App\Model\Shop as ShopMod;
 use App\Model\Product as ProductMod;
+use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -101,12 +102,13 @@ class UsersController extends Controller
             'mobile' => 'required|numeric',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            'age' => 'required|numeric',
             'confirm_password' => 'required|min:6|max:20|same:password',
         ], [
             'name.required' => 'Name is required',
             'name.min' => 'Name must be at least 2 characters.',
             'name.max' => 'Name should not be greater than 50 characters.',
-        ]); 
+        ]);
 
 
         $mod = new UserMod;
@@ -120,7 +122,8 @@ class UsersController extends Controller
         $mod->city     = $request->city;
         $mod->save();
 
-        return redirect('admin/users')->with('success', 'User ['.$request->name.'] created successfully.');
+        return redirect('admin/user')
+                    ->with('success', 'User ['.$request->name.'] created successfully.');
     }
 
     /**
@@ -167,7 +170,9 @@ class UsersController extends Controller
         $mod->address  = $request->address;
         $mod->city     = $request->city;
         $mod->save();
-        return redirect('admin/users')->with('success', 'User ['.$request->name.'] updated successfully.');
+
+        return redirect('admin/user')
+                    ->with('success', 'User ['.$request->name.'] updated successfully.');
     }
     /**
      * Remove the specified resource from storage.
@@ -179,6 +184,7 @@ class UsersController extends Controller
     {
         $mod = UserMod::find($id);
         $mod->delete();
-        return redirect('admin/users')->with('success', 'User ['.$mod->name.'] deleted successfully.');
+        return redirect('admin/user')
+                ->with('success', 'User ['.$mod->name.'] deleted successfully.');
     }
 }
