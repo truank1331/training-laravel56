@@ -167,7 +167,7 @@ class UsersController extends Controller
         $mod->address  = $request->address;
         $mod->city     = $request->city;
         $mod->save();
-        return redirect('admin/user')->with('success', 'User ['.$request->name.'] updated successfully.');
+        return redirect('admin/users')->with('success', 'User ['.$request->name.'] updated successfully.');
     }
     /**
      * Remove the specified resource from storage.
@@ -179,6 +179,6 @@ class UsersController extends Controller
     {
         $mod = UserMod::find($id);
         $mod->delete();
-        return redirect('admin/user')->with('success', 'User ['.$mod->name.'] deleted successfully.');
+        return redirect('admin/users')->with('success', 'User ['.$mod->name.'] deleted successfully.');
     }
 }
