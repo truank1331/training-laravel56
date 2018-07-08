@@ -9,7 +9,7 @@
  <li class="breadcrumb-item active">Create</li>
 </ol>
 <!-- breadcrumb End -->
-<!--@include('admin.layouts.partials.flash-message')-->
+@include('admin.layouts.partials.flash-message')
 
 <div class="card mb-3">
   <div class="card-header">Create User</div>
@@ -23,7 +23,7 @@
           <div class="card-body text-dark">
               <div class="form-group">
                 <label for="email">Email address</label>
-                <input class="form-control" id="email" name="email" type="email" value="" aria-describedby="emailHelp" placeholder="Enter email">
+                <input class="form-control" id="email" name="email" type="email" value="{{ old('email') }}" aria-describedby="emailHelp" placeholder="Enter email">
                 <!--@if ($errors->has('email'))
                     <span class="text-danger">{{ $errors->first('email') }}</span>
                 @endif-->
@@ -54,7 +54,7 @@
         <div class="form-row">
           <div class="col-md-6">
             <label for="name">First name</label>
-            <input class="form-control" id="name" name="name" value="" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+            <input class="form-control" id="name" name="name" value="{{ old('name') }}" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
 
 
           </div>
