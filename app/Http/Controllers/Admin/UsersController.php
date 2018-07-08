@@ -95,7 +95,17 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mod = new UserMod;
+        $mod->email    = $request->email;
+        $mod->password = $request->password;
+        $mod->name     = $request->name;
+        $mod->surname  = $request->surname;
+        $mod->mobile   = $request->mobile;
+        $mod->age      = $request->age;
+        $mod->address  = $request->address;
+        $mod->city     = $request->city;
+        $mod->save();
+
     }
 
     /**
