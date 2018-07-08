@@ -95,9 +95,23 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'name' => 'required|min:2|max:50',
+            'surname' => 'required|min:2|max:50',
+            'phone' => 'required|numeric',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'confirm_password' => 'required|min:6|max:20|same:password',
+        ], [
+            'name.required' => 'Name is required',
+            'name.min' => 'Name must be at least 2 characters.',
+            'name.max' => 'Name should not be greater than 50 characters.',
+        ]); 
+
+
         $mod = new UserMod;
         $mod->email    = $request->email;
-        $mod->password = $request->password;
+        $mod->password = bcrypt($request->password);
         $mod->name     = $request->name;
         $mod->surname  = $request->surname;
         $mod->mobile   = $request->mobile;
@@ -105,7 +119,7 @@ class UsersController extends Controller
         $mod->address  = $request->address;
         $mod->city     = $request->city;
         $mod->save();
-
+        echo "success";
     }
 
     /**
