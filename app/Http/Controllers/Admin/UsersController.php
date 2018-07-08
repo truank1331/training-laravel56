@@ -119,7 +119,8 @@ class UsersController extends Controller
         $mod->address  = $request->address;
         $mod->city     = $request->city;
         $mod->save();
-        return redirect('admin/user')->with('success', 'User ['.$request->name.'] created successfully.');
+
+        return redirect('admin/users')->with('success', 'User ['.$request->name.'] created successfully.');
     }
 
     /**
@@ -141,7 +142,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = UserMod::find($id);
+        //dd($item);
+        return view('admin.user.edit', compact('item'));
     }
 
     /**
@@ -151,19 +154,31 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $request->validated();
+        $mod = UserMod::find($id);
+        $mod->name     = $request->name;
+        $mod->surname  = $request->surname;
+        //$mod->email    = $request->email;
+        $mod->mobile   = $request->mobile;
+        $mod->surname  = $request->surname;
+        $mod->age      = $request->age;
+        $mod->address  = $request->address;
+        $mod->city     = $request->city;
+        $mod->save();
+        return redirect('admin/user')->with('success', 'User ['.$request->name.'] updated successfully.');
     }
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $mod = UserMod::find($id);
+        $mod->delete();
+        return redirect('admin/user')->with('success', 'User ['.$mod->name.'] deleted successfully.');
     }
 }
