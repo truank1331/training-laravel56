@@ -74,7 +74,7 @@
                         <a href="{{ URL::to('admin/user/'.$item->id.'/edit') }}">
                             <button type="button" class="btn btn-success btn-sm">Edit</button>
                         </a>
-                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal_user_4">Delete</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal_user_{{ $item->id }}">Delete</button>
                         <!-- Include Delete Modal Confirmation -->
                         @include('admin.layouts.partials.modal-delete', ['url' => 'admin/user', 'name' => 'user', 'id' => $item->id])
 
