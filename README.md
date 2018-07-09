@@ -13,7 +13,7 @@ https://getbootstrap.com/docs/4.0/components/modal/
 https://github.com/thenesta/laravel56-training
 
 
-# ตอนนี้ Code ที่สอน Version ที่สมบูรณ์ ได้ถูก Push ขึ้นมายัง git ตัวนี้แล้ว โดยสามารถกดจากปุ่ม หน้า Users List ได้เลย โดยมี URL ในแต่ละส่วน ดังนี้
+## ตอนนี้ Code ที่สอน Version ที่สมบูรณ์ ได้ถูก Push ขึ้นมายัง git ตัวนี้แล้ว โดยสามารถกดจากปุ่ม หน้า Users List ได้เลย โดยมี URL ในแต่ละส่วน ดังนี้
 Lists User (Method GET) : http://www.training.me/admin/user
 Create User (Method GET) : http://www.training.me/admin/user/create    //แสดงหน้า Create New User Form HTML
 Store User (Method POST) : http://www.training.me/admin/user    //Insert User ลง Table
