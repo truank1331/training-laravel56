@@ -37,3 +37,7 @@ Route::get('demoten/age/{age}/school/{school}', function ($age, $school) {
 
 Route::resource('photos', 'PhotoController');
 Route::resource('admin/user', 'Admin\UsersController');
+
+Route::get('login', 'LoginController@index')->name('login');
+Route::get('logout', 'LoginController@logout');
+Route::post('login', 'LoginController@authenticate');
